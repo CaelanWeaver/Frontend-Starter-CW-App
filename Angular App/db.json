@@ -1,0 +1,62 @@
+{
+    "employees": [
+      {
+        "id": 1,
+        "first_name": "Sebastian",
+        "last_name": "Eschweiler",
+        "email": "sebastian@codingthesmartway.com"
+      },
+      {
+        "id": 2,
+        "first_name": "Steve",
+        "last_name": "Palmer",
+        "email": "steve@codingthesmartway.com"
+      },
+      {
+        "id": 3,
+        "first_name": "Ann",
+        "last_name": "Smith",
+        "email": "ann@codingthesmartway.com"
+      }
+    ],
+
+    "products": [
+      {
+        "id": 1,
+        "name": "Apple",
+        "type": "Food",
+        "price": 1.20
+      },
+      {
+        "id": 2,
+        "name": "Banana",
+        "type": "Food",
+        "price": 1.20
+      },
+      {
+        "id": 3,
+        "name": "Orange",
+        "type": "Food",
+        "price": 1.20
+      },
+      {
+        "id": 4,
+        "name": "Peach",
+        "type": "Food",
+        "price": 1.20
+      },
+      {
+        "id": 5,
+        "name": "Grape",
+        "type": "Food",
+        "price": 1.20
+      },
+      {
+        "id": 6,
+        "name": "Strawberry",
+        "type": "Food",
+        "price": 1.20
+      }
+    ]
+
+  }

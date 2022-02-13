@@ -1,0 +1,34 @@
+body {
+  width: 100%;
+  height: auto;
+}
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+
+  }
+
+  .container > .header {
+    flex-basis: 20%;
+    order: 1; 
+  }
+  
+  .container > .footer {
+    flex-basis: 20%;
+    order: 3; 
+  }
+  
+  .container > .body {
+    flex: 1;
+    order: 2; 
+  }
+
+  .example-card {
+    max-width: 400px;
+    margin-bottom: 10px;
+  }

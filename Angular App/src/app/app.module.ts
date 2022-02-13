@@ -16,6 +16,8 @@ import { MatListModule } from '@angular/material/list';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -37,7 +39,9 @@ import { MatCardModule } from '@angular/material/card';
     MatIconModule,
     MatListModule,
     MatGridListModule,
-    MatCardModule
+    MatCardModule,
+    MatInputModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
