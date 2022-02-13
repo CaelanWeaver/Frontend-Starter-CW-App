@@ -1,0 +1,12 @@
+<p>Search bar</p>
+<mat-grid-list cols="3" rowHeight="2:1">
+    <mat-grid-tile *ngFor="let card of cards">
+      <mat-card class="my-card">
+        <mat-card-title>{{card.title}}</mat-card-title>
+        <mat-card-content>
+           {{card.content}}
+        </mat-card-content>
+      </mat-card> 
+    </mat-grid-tile>
+  </mat-grid-list> 
+
