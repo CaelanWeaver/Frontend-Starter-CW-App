@@ -1,38 +1,22 @@
-<div>
-  <input type="text" class="inputSearch" value="test" [(ngModel)]="term" placeholder="Search">
-  <button class="searchBtn" (click)="getProductByName(term)">/</button>
-  <div *ngFor="let product of products">
-  </div>
-</div> 
-<!-- <form (ngSubmit)="getProductByName(term)">
-    <input #myInput name="term" placeholder="Item name..." ngModel (input)="getProductByName(term)">
-    <div *ngFor="let product of products">
-        
-    </div>
-    <button mat-button>Search</button>
-</form> -->
-<!-- <mat-form-field floatLabel="never" appearance="fill"> 
-    <mat-label>Search</mat-label>
-    <input matInput type="text" [(ngModel)]="value">
-    <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
-    <mat-icon>close</mat-icon>
-  </button>
-</mat-form-field> -->
-    <div class="container">
-        <div class="card" *ngFor="let product of products">
+<div class="row">
+  <div class="search-product">
+    <input type="text" name="search" [(ngModel)]="searchText" placeholder="Search"> 
+  </div> 
+    <div class="container">  
+        <div class="card" *ngFor="let product of products |filter:searchText">
         <figure>
           <img src={{product.defaultImage}}>
         </figure>
         <section class="details">
           <div class="min-details">
-            <h1>{{product.name}} </h1>
+            <h1>{{product.name}}</h1>
             <p>{{product.description}}</p>
             <h1 class="price">£{{product.price}}</h1>
             <a href="#" class="btn">Add to cart</a>
           </div>
         </section>
       </div>
-      </div>
+    </div>
       
 
 

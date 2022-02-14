@@ -1,7 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Product } from 'src/app/models/products.model';
-import { Observable } from 'rxjs';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -13,9 +11,9 @@ export class ProductsComponent implements OnInit {
   
   private readonly rootUrl: string = 'http://localhost:3000';
   products: Product[] = [];
-  term: string = '';
+  searchText:any;
 
-  constructor(private http:HttpClient, private productsService:ProductsService) { 
+  constructor(private productsService:ProductsService) { 
 
    }
 
@@ -25,27 +23,5 @@ export class ProductsComponent implements OnInit {
     console.log(this.products);
     })
   }
-
-  public getProductByName(term:string){
-    term = this.term
-    console.log(this.term);
-    return this.http.get<Product[]>(this.rootUrl + '/products?name_like=' + this.term);
-    
-  }
-
-  // assignCopy(){
-  //   this.filteredItems = this.products;
-  // }
-
-  // filterItem(value: string){
-  //     if(!value){
-  //         this.assignCopy();
-  //     } // when nothing has typed
-  //     this.filteredItems = this.products.filter(
-  //       product => product.name.toLowerCase().indexOf(value.toLowerCase()) > -1
-  //     )
-  //   this.assignCopy();//when you fetch collection from server.
-  // }
-  
 
 }
