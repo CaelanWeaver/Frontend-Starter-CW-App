@@ -10,6 +10,7 @@ export class ProductsService {
 
   private readonly rootUrl: string = 'http://localhost:3000/products';
   products!: Product[];
+  //term = window.document.getElementById("inputSearch")!
 
   constructor(private http:HttpClient) { 
 
@@ -20,4 +21,11 @@ export class ProductsService {
     return this.http.get(this.rootUrl)
 
    }
+
+  //  getProductByName(term: string | HTMLElement) {
+
+  //   return this.http.get(this.rootUrl + "?name_like=" + term)
+    
+
+  //  }
 }

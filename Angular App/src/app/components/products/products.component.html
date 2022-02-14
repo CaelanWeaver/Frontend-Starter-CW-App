@@ -1,10 +1,16 @@
-<form (ngSubmit)="filterItem(value)" >
-    <input #myInput name="value" placeholder="Item name..." ngModel (input)="filterItem(value)">
-    <div *ngFor="let item of filteredItems">
-        {{item.name}}
+<div>
+  <input type="text" class="inputSearch" value="test" [(ngModel)]="term" placeholder="Search">
+  <button class="searchBtn" (click)="getProductByName(term)">/</button>
+  <div *ngFor="let product of products">
+  </div>
+</div> 
+<!-- <form (ngSubmit)="getProductByName(term)">
+    <input #myInput name="term" placeholder="Item name..." ngModel (input)="getProductByName(term)">
+    <div *ngFor="let product of products">
+        
     </div>
     <button mat-button>Search</button>
-</form>
+</form> -->
 <!-- <mat-form-field floatLabel="never" appearance="fill"> 
     <mat-label>Search</mat-label>
     <input matInput type="text" [(ngModel)]="value">
@@ -22,47 +28,10 @@
             <h1>{{product.name}} </h1>
             <p>{{product.description}}</p>
             <h1 class="price">£{{product.price}}</h1>
+            <a href="#" class="btn">Add to cart</a>
           </div>
-      
-          <div class="options">
-            <!--<div class="options-size">
-              <h1>sizes</h1>
-              <ul>
-                <li>xs</li>
-                <li>s</li>
-                <li>m</li>
-                <li>l</li>
-                <li>xl</li>
-              </ul>
-            </div> -->
-      
-            <!-- <div class="options-colors">
-              <h1>colors</h1>
-              <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-              </ul>
-            </div> -->
-          </div>
-          <a href="#" class="btn">add to cart</a>
         </section>
       </div>
-    <!-- <mat-card class="example-card" *ngFor="let product of products">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>{{product.name}}</mat-card-title>
-          <mat-card-subtitle>{{product.id}}</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src={{product.defaultImage}}>
-        <mat-card-content>
-          <p>
-            {{product.description}}
-          </p>
-        </mat-card-content>
-      </mat-card> -->
       </div>
       
 

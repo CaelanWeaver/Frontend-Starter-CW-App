@@ -10,11 +10,10 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-
-  value = '';
+  
   private readonly rootUrl: string = 'http://localhost:3000';
-  products!: Product[];
-  filteredItems: any[] = [];
+  products: Product[] = [];
+  term: string = '';
 
   constructor(private http:HttpClient, private productsService:ProductsService) { 
 
@@ -22,28 +21,31 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.productsService.getProducts().subscribe((products:Product[])=>{
-    this.products = products.slice(1,10);
+    this.products = products.slice(0,20);
     console.log(this.products);
     })
   }
 
-  public getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.rootUrl + '/products');
-  } 
-
-  assignCopy(){
-    this.filteredItems = this.products;
+  public getProductByName(term:string){
+    term = this.term
+    console.log(this.term);
+    return this.http.get<Product[]>(this.rootUrl + '/products?name_like=' + this.term);
+    
   }
 
-  filterItem(value: string){
-      if(!value){
-          this.assignCopy();
-      } // when nothing has typed
-      this.filteredItems = this.products.filter(
-        product => product.name.toLowerCase().indexOf(value.toLowerCase()) > -1
-      )
-    this.assignCopy();//when you fetch collection from server.
-  }
+  // assignCopy(){
+  //   this.filteredItems = this.products;
+  // }
+
+  // filterItem(value: string){
+  //     if(!value){
+  //         this.assignCopy();
+  //     } // when nothing has typed
+  //     this.filteredItems = this.products.filter(
+  //       product => product.name.toLowerCase().indexOf(value.toLowerCase()) > -1
+  //     )
+  //   this.assignCopy();//when you fetch collection from server.
+  // }
   
 
 }
