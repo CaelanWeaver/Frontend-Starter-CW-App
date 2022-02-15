@@ -3,16 +3,16 @@
     <input type="text" name="search" [(ngModel)]="searchText" placeholder="Search"> 
   </div> 
     <div class="container">  
-        <div class="card" *ngFor="let product of products |filter:searchText">
+        <div class="card" *ngFor="let product of products | filter:searchText">
         <figure>
           <img src={{product.defaultImage}}>
         </figure>
         <section class="details">
           <div class="min-details">
-            <h1>{{product.name}}</h1>
-            <p>{{product.description}}</p>
-            <h1 class="price">£{{product.price}}</h1>
-            <a href="#" class="btn">Add to cart</a>
+            <h1 class="productName">{{product.name}}</h1>
+            <p class="productDesc">{{product.description}}</p>
+            <h1 class="productPrice">£{{product.price}}</h1>
+            <button class="btn" (click)="addItem(product)">Add to cart</button>
           </div>
         </section>
       </div>
