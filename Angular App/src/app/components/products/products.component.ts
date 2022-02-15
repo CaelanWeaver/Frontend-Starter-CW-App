@@ -9,12 +9,10 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class ProductsComponent implements OnInit {
   
-  private readonly rootUrl: string = 'http://localhost:3000';
   products: Product[] = [];
   searchText:any;
 
   constructor(private productsService:ProductsService) { 
-
    }
 
   ngOnInit(): void {
