@@ -5,7 +5,9 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Basket</mat-toolbar>
     <mat-nav-list>
-      <div *ngFor="let cart of cart">{{cart.name}}</div>
+      <div class="cartItem" *ngFor="let cart of cart">
+        <mat-list-item>{{cart.name}} £{{cart.price}}</mat-list-item>
+      </div>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
