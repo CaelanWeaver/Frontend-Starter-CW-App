@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { catchError, of, tap } from 'rxjs';
 import { Product} from 'src/app/models/products.model';
 import { ProductsService } from 'src/app/services/products.service';
-
 
 @Component({
   selector: 'app-products',
@@ -11,7 +11,7 @@ import { ProductsService } from 'src/app/services/products.service';
 export class ProductsComponent implements OnInit {
   
   products: Product[] = [];
-  searchText:any;
+  searchText!:string;
   @Output() notifyParent: EventEmitter<any> = new EventEmitter();
 
   constructor(private productsService:ProductsService) { 
@@ -21,10 +21,16 @@ export class ProductsComponent implements OnInit {
   //pull 20 products using products service
   ngOnInit(): void {
     this.initCart();
-    this.productsService.getProducts().subscribe((products:Product[])=>{
-    this.products = products.slice(1,21);
-    console.log(this.products);
-    })
+    this.productsService.getProducts()
+    .pipe(
+      tap(p =>{
+        this.products = p.slice(1,21);
+      }),
+      catchError(err => {
+        console.error(err);
+        return of(false);
+      })
+    ).subscribe();
   }
 
   initCart(){

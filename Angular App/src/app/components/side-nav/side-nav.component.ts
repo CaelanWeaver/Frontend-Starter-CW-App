@@ -22,11 +22,14 @@ export class SideNavComponent {
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 
-  getNotification() {
+   ngOnInit(): void {
+    this.populateCart();
+   }
+
+  populateCart() {
     var cart = window.localStorage.getItem("cart") ?? '';
     var allEntries = JSON.parse(cart) ?? [];
     this.cart = allEntries;
-    console.log(allEntries);
   }
 
 }
